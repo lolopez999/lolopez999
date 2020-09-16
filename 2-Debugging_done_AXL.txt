@@ -1,0 +1,38 @@
+Part Two: Fixing the Bugs
+-------------------------
+
+Understanding the code
+
+  1) Explain why this program uses the exclamation operator with the
+     strcmp() function.
+
+This program uses the exclamation operator with the strcmp() function because 
+it checks if the return value is equal to 0. It helps check for equality.
+ 
+
+  2) Explain why the 'LENGTH' macro returns the length of an array.
+     Would it work with a pointer to a dynamically allocated array? (Hint:
+     understand sizeof).
+
+The LENGTH macro returns the length of an array because it has been defined statically by the variable entries and has been allocated 5 instances.
+LENGTH would not work with a pointer to a dynamically allocated array because there wont be any memory allocated if anything the integer will be truncated.
+
+
+Bug hunting
+
+  3) Explain and fix the logical flow bug within the switch statement.
+     (What happens when the -h option is used?)
+
+The issue with the logic of the switch statement is the way the Break is used.
+The break doesnt stop the program all toether so it stays executed and running. When users enter -h for help it will require more info,
+thus we can use return EXIT_SUCCESS
+
+  4) Explain and fix the argument parsing error. (Why is entrycount never
+     zero?)
+The issue with the argument parsing error is that the entryCount must be initialized to -1 so when it gets increased it never gets to 0.
+
+
+  5) Fix print_result() to print results correctly and in the same order
+     as the words were specified on the command line.  Explain your solution.
+The issue with the print_result() is that the last argument is not counted, thus getting out of order.
+To fix we can add 2 while loops.
